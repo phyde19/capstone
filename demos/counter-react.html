@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React Hello World Counter</title>
+    <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+            color: #ffffff;
+        }
+        #container {
+            text-align: center;
+            background-color: #fff;
+            padding: 3rem;
+            border-radius: 15px;
+            width: 280px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            color: #222;
+        }
+        #counter {
+            font-size: 4rem;
+            margin: 2rem 0;
+            font-weight: bold;
+            color: #222;
+        }
+        #incrementBtn {
+            font-size: 1.5rem;
+            padding: 1rem 2rem;
+            cursor: pointer;
+            background-color: #61dafb;
+            color: #1e1e1e;
+            border: none;
+            border-radius: 8px;
+            transition: background-color 0.3s, transform 0.1s;
+        }
+        #incrementBtn:hover {
+            background-color: #6ac2ee;
+        }
+        #incrementBtn:active {
+            transform: scale(0.98);
+        }
+        #resetBtn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            padding: 10px 20px;
+            background-color: #ff6b6b;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        #resetBtn:hover {
+            background-color: #ff8787;
+        }
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+
+        const { useState, Fragment } = React;
+
+        function Counter() {
+            const [count, setCount] = useState(0);
+
+            const increment = () => {
+                setCount(prevCount => prevCount + 1);
+            };
+
+            const reset = () => {
+                setCount(0);
+            };
+
+            return (
+                <Fragment>
+                    <div id="container">
+                        <h1>Count</h1>
+                        <div id="counter">{count}</div>
+                        <button id="incrementBtn" onClick={increment}>Increment</button>
+                    </div>
+
+                    <button id="resetBtn" onClick={reset}>
+                        Reset
+                    </button>
+                </Fragment>
+            );
+        }
+
+        ReactDOM.render(<Counter />, document.getElementById('root'));
+    </script>
+</body>
+</html>

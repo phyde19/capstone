@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hello World Counter</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+            color: #ffffff;
+        }
+        #container {
+            text-align: center;
+            background-color: #fff;
+            padding: 3rem;
+            border-radius: 15px;
+            width: 280px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            color: #222;
+        }
+        #counter {
+            font-size: 4rem;
+            margin: 2rem 0;
+            font-weight: bold;
+            color: #222;
+        }
+        #incrementBtn {
+            font-size: 1.5rem;
+            padding: 1rem 2rem;
+            cursor: pointer;
+            background-color: #61dafb;
+            color: #1e1e1e;
+            border: none;
+            border-radius: 8px;
+            transition: background-color 0.3s, transform 0.1s;
+        }
+        #incrementBtn:hover {
+            background-color: #6ac2ee;
+        }
+        #incrementBtn:active {
+            transform: scale(0.98);
+        }
+        #resetBtn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            padding: 10px 20px;
+            background-color: #ff6b6b;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        #resetBtn:hover {
+            background-color: #ff8787;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <h1>Count</h1>
+        <div id="counter">0</div>
+        <button id="incrementBtn">Increment</button>
+    </div>
+
+    <button id="resetBtn">
+      Reset
+    </button>
+
+    <script>
+        let count = 0;
+        const counterDisplay = document.getElementById('counter');
+        const incrementBtn = document.getElementById('incrementBtn');
+        const resetBtn = document.getElementById('resetBtn');
+
+        incrementBtn.addEventListener('click', () => {
+            // update state 
+            count++;
+            
+            // update DOM to match JS state
+            counterDisplay.textContent = count;
+        });
+
+        resetBtn.addEventListener('click', () => {
+            count = 0;
+            counterDisplay.textContent = count;
+        });
+    </script>
+</body>
+</html>
